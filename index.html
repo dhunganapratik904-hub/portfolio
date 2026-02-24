@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f0f2f5;
+}
+
+/* Navbar */
+.navbar {
+    background: #1877f2;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.navbar button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    margin: 0 25px;
+    cursor: pointer;
+    padding: 8px 15px;
+    transition: 0.3s;
+}
+
+.navbar button:hover {
+    background: white;
+    color: #1877f2;
+    border-radius: 5px;
+}
+
+/* Sections */
+.section {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+    position: absolute;
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+}
+
+.section.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+}
+
+.active {
+    display: block;
+}
+
+/* Profile Image */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #1877f2;
+    margin-bottom: 20px;
+}
+
+/* Cards */
+.card {
+    background: white;
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+/* Skills */
+.skills-list {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.skills-list li {
+    background: #e4e6eb;
+    margin: 10px auto;
+    padding: 10px;
+    max-width: 400px;
+    border-radius: 5px;
+}
+
+/* Contact */
+.contact form {
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact input, .contact textarea {
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.contact button {
+    background: #1877f2;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('about')">About Me</button>
+    <button onclick="showSection('skills')">Skills</button>
+    <button onclick="showSection('contact')">Contact us</button>
+</div>
+
+<!-- Home -->
+<div id="home" class="section active">
+    <img src="myphoto.png" class="profile-img">
+    <h1>Sagar Dahal</h1>
+    <p></p>
+</div>
+
+<!-- About -->
+<div id="about" class="section">
+    <div class="card">
+        <h2>About Me</h2>
+        <p> Name: Sagar Dahal<br>
+            Age: 16<br>
+        email: sagardahal033@gmail.com<br>
+        contact: 9762620373<br>
+        Address: changunarayan,1 bhaktapur<br>
+        Education: secondary level<br>
+
+    </p>
+    </div>
+</div>
+
+<!-- Skills -->
+<div id="skills" class="section">
+    <div class="card">
+        <h2>My Skills</h2>
+        <ul class="skills-list">
+            <li>HTML - Website Structure</li>
+            <li>CSS - Website Design</li>
+            <li>JavaScript - Website Interaction</li>
+            <li> content writting</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Contact -->
+<div id="contact" class="section contact">
+    <div class="card">
+        <h2>Contact </h2>
+        <form>
+            <input type="text" placeholder="Your Name">
+            <input type="Address" placeholder="Address">
+              <input type="text" placeholder="phone no">
+            <input type="email" placeholder="Email Address ">
+            <textarea rows="4" placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</div>
+
+<script>
+function showSection(sectionId) {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => section.classList.remove('active'));
+    document.getElementById(sectionId).classList.add('active');
+}
+</script>
+
+</body>
+</html>
